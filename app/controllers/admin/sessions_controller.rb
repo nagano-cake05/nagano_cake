@@ -21,7 +21,7 @@ class Admin::SessionsController < Devise::SessionsController
   protected
   
    def after_sign_in_path_for(resource)
-     root_to #任意ページ
+     admin_items_path
    end
    
    def after_sign_out_path_for(resource)

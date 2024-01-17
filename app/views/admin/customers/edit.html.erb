@@ -1,0 +1,43 @@
+<h4><%= @customer.full_name %>さんの会員情報編集</h4>
+<table>
+  <%= form_with model: [:admin, @customer] do |f| %>
+  <tr>
+    <td>会員ID</td>
+    <td><%= @customer.id %></td>
+  </tr>
+  
+  <tr>
+    <td>フリガナ</td>
+    <td><%= f.text_field :last_name_kana %> <%= f.text_field :filst_name_kana %></td>
+  </tr>
+  
+  <tr>
+    <td>郵便番号</td>
+    <td><%= f.text_field :postcode %></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>住所</td>
+    <td><%= f.text_field :address %></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>電話番号</td>
+    <td><%= f.text_field :phone_number %></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= f.text_field :email %></td>
+    <td></td>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <td><%= f.submit "変更を保存" %></td>
+  </tr>
+  <% end %>
+</table>
