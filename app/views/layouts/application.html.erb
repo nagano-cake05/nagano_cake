@@ -11,17 +11,26 @@
   </head>
 
   <body>
-
+   <header>
     <% if customer_signed_in? %>
      <li>
        <%= link_to "ログアウト", destoroy_admin_session_path, method: :delete %>
      </li>
     <% else %>
      <li>
+      <%= link_to "About", new_customer_session_path %>
+     </li>
+     <li>
+      <%= link_to "商品一覧", new_customer_session_path %>
+     </li>
+     <li>
        <%= link_to "新規登録", new_customer_session_path %>
      </li>
+     <li>
+       <%= link_to "ログイン", new_customer_session_path %>
+     </li>
     <% end %>
-
+   </header>
     <%= yield %>
   </body>
 </html>

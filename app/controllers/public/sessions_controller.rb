@@ -34,7 +34,7 @@ class Public::SessionsController < Devise::SessionsController
   private
   
   def customer_state
-    customer =Customer.find_by(email: params[:customer][:email])
+    customer = Customer.find_by(email: params[:customer][:email])
     return if customer.nil?
     return unless customer.valid_password?(params[:customer][:password])
     #処理４　アクティブでない会員に対する処理
