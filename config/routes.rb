@@ -12,12 +12,13 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    get '/' => 'homes#top'
     resources :products
     get 'customers/mypage' => 'public/customers#show'
    end
    
   namespace :public do
+    get '/' => 'homes#top'
+    get "home/about" => "homes#about", as: "about"
     resources :customers, only: [:show, :edit, :update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
