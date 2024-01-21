@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    root to: 'admin/homes#top'
     resources :products
-    get 'customers/mypage' => 'public/customers#show'
+    
    end
    
   namespace :public do
