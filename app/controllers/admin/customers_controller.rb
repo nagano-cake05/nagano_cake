@@ -1,5 +1,5 @@
 class Admin::CustomersController < ApplicationController
-
+before_action :authenticate_admin!
   def index
     @customers = Customer.all
   end
@@ -13,9 +13,12 @@ class Admin::CustomersController < ApplicationController
   end
 
   def update
-    customer = Customer.find(params[:id])
-    customer.update(customer_params)
-    redirect_to admin_customers_path(customer)
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
+     redirect_to @customer_customers, notice: "顧客情報を更新しました。"
+    else
+     render :edit
+    end
   end
 
   private
